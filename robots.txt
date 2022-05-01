@@ -1,0 +1,8 @@
+User-agent: Googlebot
+allow: /
+
+User-agent: *
+Dissallow: /
+Allow: /
+
+# Sitemap : https://quatres-pattes-virginie-giacometti.netlify.app/sitemap.xml 

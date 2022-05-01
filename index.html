@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- Bootstrap CDN + Icone-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    
+    <!-- My CSS-->
+    <link rel="stylesheet" href="style.css">
+    <title>Evaluation Jeu de dé </title>
+</head>
+<body>
+
+<header>
+    <h1 id="titreDiceGame " class="center col-12 mt-2 mb-3">Welcome to Dice Game</h1>
+    <div class="barInfo">
+
+        <h2 id="newGame"><i class="bi bi-plus-circle biHeader p-2"></i>New Game</h2>
+
+        <!-- Revoir le chemin de la modal pour les regles-->
+        <a href="#modal">
+            <h2 id="rules">
+            <i class="bi bi-book biHeader  p-2 "></i>Rules</h2>
+        
+        </a>
+    </div>
+</header>
+    <!--Faire une modale pour les règles et prompt pour la saisie des nom-->
+        
+    <!--debut essaie modal-->
+
+    <!--  Début Première Modal règles du jeu-->
+    <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="modalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+                
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="modalLabel">Règles du jeu de dé</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <h6 class="center line-height mb-3">Pour commencer à jouer, </br>lisez les règles du jeu :</h6>
+                    
+                    <p class="line-height"> 
+                    Deux joueurs s'affontent aux lancers d'un dé à 6 faces.
+                    Chaque joueur possède un score actuel (ROUND) et un score global (GLOBAL) égal à 0.
+                    À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite.</p>
+                    <p class="center"><b>Le résultat d’un lancer est ajouté au ROUND</b>.</p>
+<hr>
+                    <ul>Lors de son tour, le joueur actif peut décider de :
+                        <li class="mt-2">Cliquer sur HOLD, ce qui permet d’envoyer les points du ROUND vers le GLOBAL.</br> <b> Ce sera alors le tour de l’autre joueur de jouer</b>.</li>
+                        <li class="mt-2"> Lancer ou relancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.</li>
+                    </ul>
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <p class="center">
+                    <b>Le premier joueur qui atteint ou dépasse les 100 points sur GLOBAL gagne la partie</b>.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!--  fin Première Modal règles du jeu-->
+
+<!--  Début deuxième Modal Saisir les pseudos-->
+    <!-- <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modalLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel2">Modal 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  Hide this modal and show the first with the button below.
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#modal" data-bs-toggle="modal">Back to first</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+<!--  Début deuxième Modal Saisir les pseudos-->
+<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Open first modal</a> -->
+<!--fin essaie modal-->
+
+
+
+
+
+        
+    <main class="container ">
+        <div class="flexColum  player1 ">
+            <h3 id="playerOne">Player 1</h3>
+            <p  id="userPlayerOne"></p>
+            <p  id="roundPlayerOne" >0</p>
+            <h4 >Current</h4>
+            <p  id="currentPlayerOne">0</p>
+        </div>
+        <div class="optionGame  ">
+            <p id="rollDice"><i class="bi bi-arrow-repeat p-1"></i>Roll Dice</p>
+            <p id="imgDice">Image de dé</p>
+            <p id="hold"><i class="bi bi-box-arrow-in-down p-1"></i>Hold</p>
+        </div>
+        <div class="flexColum player2  ">
+            <h3 id="playerTwo">Player 2</h3>
+            <p id="userplayerTwo"></p>
+            <p id="roundPlayerTwo">0</p>
+            <h4 >Current</h4>
+            <p id="currentplayerTwo">0</p>
+        </div>
+        
+        <div class="winner">
+            <p id="winnerGame"></p>
+
+        </div>
+        
+        
+        
+    </main>
+<!--Avoir si utile-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- jQuery -->    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Javascript -->    
+    <script src="script.js"></script>
+
+</body>
+</html>
