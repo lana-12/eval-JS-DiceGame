@@ -61,9 +61,10 @@ main{
     background: linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%);
     border: solid #c2bab8 5px ;
     margin-top: 20px;
-    height: 400px;
+    height: auto;
     
 }
+
 .flexColum{
     display: flex;
     flex-direction: column;
@@ -90,7 +91,10 @@ main{
     color : #5EBEC4;
     
 }
-
+img{
+    width: 150px;
+    height: 150px;
+}
 /********MEDIA QUERY POUR ECRAN 720PX  ***********
 ******min-width 720px**************/
 @media screen and (min-width: 720px){
