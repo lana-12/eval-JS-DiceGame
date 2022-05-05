@@ -13,9 +13,11 @@ a:hover {
 }
 
 
-/*Background*/
-/* background-color 1 = #5EBEC4 color = #FDF5DF  
-/* background-color 2 = #FDF5DF color = #5EBEC4 
+/*couleur*/
+/* faire class active avec les couleurs le blue celui qui jouent*/
+/* color blue = #5EBEC4  */
+/* color pink = #FDF5DF   */
+/* background-color: #8e9483;  */
 
 /* Police  font-family: 'Lato', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
@@ -41,6 +43,15 @@ body{
 
 }
 /*  Modal  */
+.btnModal{
+    background-color: #5EBEC4;
+    width: 80px;
+    text-align: center;
+    margin: auto;
+    font-weight: bolder;
+}
+
+
 
 /*  HEADER  */
 h1{

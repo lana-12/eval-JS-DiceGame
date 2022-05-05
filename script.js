@@ -2,13 +2,24 @@ $(document).ready(()=>{
     console.log('Jquery bien installé')
     
     
-    // //au chargement page modal regle
-    $('#modal').modal('show')
+    // au chargement page modal regle + background
+    $('#modal').modal('show').css('background','#8e9483');
+    //background modal2
+    let modal2 = $('#modal2');
+    modal2.modal().css('background','#8e9483');
+    
     // // a revoir animation sur titre s'affiche qd close modal2 
     $('h1').hide();
     $('h1').delay(7000).fadeIn(4000);
     
 })
+/* color blue = #5EBEC4  */
+/* color pink = #FDF5DF   */
+/* background-color: #8e9483;  */
+
+// init modal + btn play
+const btnPlay = document.getElementById('play');
+const modalInitPlayer = document.getElementById('modal2')
 
 // initialize the players test
 const namePlayerOne = document.getElementById('userNamePlayer1');//input
@@ -17,9 +28,6 @@ let playerOne = document.getElementById('playerOne');//p
 let playerTwo = document.getElementById('playerTwo');//p
 const input = document.getElementsByClassName('labelPlayer');
 
-// init modal
-const btnPlay = document.getElementById('play');
-const modalInitPlayer = document.getElementById('modal2')
 
 //reste à faire const ou class pour img face de dé
 
@@ -39,15 +47,18 @@ const modalInitPlayer = document.getElementById('modal2')
     // modalInitPlayer.style.display = 'none'; //a verifier si je met display
 })
 // }
-
-
+modalInitPlayer.addEventListener('shown.bs.modal', function () {
+    namePlayerOne.focus()
+    //Ne marche pas a revoir
+    //namePlayerOne.target.style.background = 'color blue = #5EBEC4'
+})
 ///// faire une animation au clic sur button play le titre arrive....
-const title = document.getElementById('titreDiceGame');
-const animationTitle = () =>{
-    title.addEventListener('load',(ev)=>{
-        ev.target.style.color = 'red'
-    })
-}
+//   modalInitPlayer.addEventListener('hidden.bs.modal', function (event) {
+//     const h1 = document.getElementById('titreDiceGame');
+//     h1.style.boxShadow();
+//   })
+
+
 
 
 //lier au dom

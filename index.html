@@ -39,7 +39,7 @@
                 
                 <div class="modal-header ">
                     <h5 class="modal-title " id="modalLabel">Règles du jeu de dé</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                 </div>
 
                 <div class="modal-body">
@@ -62,7 +62,7 @@
                     <p class="center">
                     <b>Le premier joueur qui atteint ou dépasse les 100 points sur GLOBAL gagne la partie</b>.</p>
                 </div>
-                <a class="btn " id="start" data-bs-toggle="modal" href="#modal2" role="button">START</a>
+                <a class="btn btnModal " id="start" data-bs-toggle="modal" href="#modal2" role="button">START</a>
             </div>
         </div>
     </div>
@@ -75,22 +75,22 @@
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalLabel2">Entrer les noms de joueurs</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body d-flex flex-column  ">
                     <div class="labelPlayer">
                         <label for="userNamePlayer1">Player 1</label>
                         <input type="text" name="userNamePlayer1" class="labelPlayer"id="userNamePlayer1" required />
                     </div>
                     <div class="labelPlayer">
-                        <label for="userNamePlayer2">Player 2</label>
-                        <input type="text" class="labelPlayer" name="userNamePlayer2" id="userNamePlayer2" required />
+                        <label  for="userNamePlayer2">Player 2</label>
+                        <input type="text" class="labelPlayer mt-3 " name="userNamePlayer2" id="userNamePlayer2" required />
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" id="play" class="btn " data-bs-dismiss="modal">PLAY</button>
+                    <button type="button" id="play" class="btn btnModal " data-bs-dismiss="modal">PLAY</button>
                 </div>
         
             </div>
