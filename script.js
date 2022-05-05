@@ -4,7 +4,7 @@ $(document).ready(()=>{
     
     // //au chargement page modal regle
     $('#modal').modal('show')
-    // // a revoir animation sur titre voir si pas possible sur 
+    // // a revoir animation sur titre s'affiche qd close modal2 
     $('h1').hide();
     $('h1').delay(7000).fadeIn(4000);
     
@@ -35,7 +35,7 @@ const modalInitPlayer = document.getElementById('modal2')
         playerOne.textContent = namePlayerOne.value[0].toUpperCase() + namePlayerOne.value.substring(1).toLowerCase();
         playerTwo.textContent = namePlayerTwo.value[0].toUpperCase() + namePlayerTwo.value.substring(1).toLowerCase();
     // nom de la function suivnate ' L'animation'
-    animationTitle()
+    // animationTitle() en cour
     // modalInitPlayer.style.display = 'none'; //a verifier si je met display
 })
 // }
