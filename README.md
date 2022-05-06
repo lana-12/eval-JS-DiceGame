@@ -3,10 +3,9 @@ Début du projet
 Evaluation JavaScript Jeu de dé
 Nom du repository sur github: 
 Par: Virginie Giacometti
-Nom du mon site  : 
+Adresse du mon site  : https://lana-12.github.io/eval-JS-DiceGame/
 
 Description du jeu:
-Association fictive de protection animale qui aurait pour but de venir en aide aux animaux errants ou abandonnés. Uniquement chats et chiens.
 
 Technologies utilisées:
 La réalisation de l'interface est pensé Mobile frist. J'ai utilisé le framework Bootstrap avec quelques médias queries. J'ai utilisé bootstrap en cdn :
