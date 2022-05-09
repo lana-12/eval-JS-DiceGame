@@ -2,7 +2,7 @@ $(document).ready(()=>{
     console.log('Jquery bien installé')
     
     
-    // au chargement page modal regle + background
+    // // au chargement page modal regle + background
     // $('#modal').modal('show').css('background','#8e9483');
     // //background modal2
     // let modal2 = $('#modal2');
@@ -29,16 +29,15 @@ let playerTwo = document.getElementById('playerTwo');//p
 const input = document.getElementsByClassName('labelPlayer');
 
 
-//reste à faire const ou class pour img face de dé
-
 /*   Initialize Game*/ // chaque new function à ajouter ds l'ordre
 // const playGame = ()=>{
 //     modalUserName()
+//     initGame()
 // }
 
 
 /* function players modal mettre celui-la */
-const modalUserName = () => {
+// const modalUserName = () => {
     btnPlay.addEventListener('click', () =>{
         playerOne.textContent = namePlayerOne.value[0].toUpperCase() + namePlayerOne.value.substring(1).toLowerCase();
         playerTwo.textContent = namePlayerTwo.value[0].toUpperCase() + namePlayerTwo.value.substring(1).toLowerCase();
@@ -46,7 +45,7 @@ const modalUserName = () => {
     // animationTitle() en cour
     // modalInitPlayer.style.display = 'none'; //a verifier si je met display
 })
-}
+// }
 
 modalInitPlayer.addEventListener('shown.bs.modal', function () {
     namePlayerOne.focus()
@@ -73,26 +72,106 @@ let scorePlayerTwo = document.getElementById('scorePlayerTwo');
 let rollDice = document.getElementById('rollDice');
 let hold = document.getElementById('hold');
 
-//initialisation des variables 
+//initialize current and scoreTotal => pour les deux players
+let currents = document.querySelectorAll('.current');
+let scores = document.querySelectorAll('.scoreTotal');
 
-let roundPlayer = 0;
-currentPlayerOne = 0;
-currentPlayerTwo = 0;
-scorePlayerOne = 0;
-scorePlayerTwo = 0;
+//initialize ActualPlayer + son Style
+const player = document.querySelectorAll('.player');
+const main = document.querySelector('main');
+const color1 = document.querySelector('.player1')
+const color2 = document.querySelector('.player2')
 
-// au clic sur rollDice nbre aleatoire entre 1 et 6
+//Function for switch player
+/* color blue = #5EBEC4  */
+/* color pink = #FAD9E6   */
 
-
-const diceValue = () =>{
-    diceValue = Math.floor(Math.random()*6) + 1;
-    console.log(diceValue);
-    
+const switchPlayer1 = ()=>{
+    player[0].setAttribute('class', 'active');
+    player[1].removeAttribute('class', 'active');
+    main.style.background='linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%)';
+    color1.style.color ='#FAD9E6';
+    color2.style.color ='#5EBEC4 ';
+    actualPlayer = 0;
+};
+const switchPlayer2 = ()=>{
+    player[1].setAttribute('class', 'active');
+    player[0].removeAttribute('class', 'active');
+    main.style.background='linear-gradient(to bottom, #FAD9E6 50%, #5EBEC4 50%)';
+    color2.style.color = '#FAD9E6';
+    color1.style.color ='#5EBEC4';
+    actualPlayer = 1;
 }
 
-// Lancer les dés 
-rollDice.addEventListener('click', ()=>{
-    diceValue = 
-    currentPlayerOne.textContent =  diceValue.value;
-})
+//initialisation to Game
+// const initGame = () =>{
+    currentPlayerOne = 0;
+    scorePlayerOne = 0;
+    
+    currentPlayerTwo = 0;
+    scorePlayerTwo = 0;
+    
+    let actualPlayer = 0;
+    let currentPlayer = 0;
+    let diceValue = 0;
 
+    currents.forEach((current) =>{
+        current.textContent = 0;
+    });
+    scores.forEach((score) =>{
+        score.textContent = 0;
+    });
+    switchPlayer1(); 
+
+    // a mettre img dé ici + create const ou class img face dé
+// }
+
+// nbre aleatoire entre 1 et 6
+const nbDiceRandom = ()=>{
+    return Math.floor(Math.random()*6) + 1;  
+} 
+// Lancer les dés 
+const resultDice = ()=>{
+    diceValue = nbDiceRandom();
+    console.log( ' le nombre du dé est '  + diceValue);
+    if (diceValue === 1) {
+        console.log('vous avez perdu');
+        currentPlayer = 0;
+        console.log('vous etes à '+ currentPlayer);
+        if(actualPlayer == 0){
+            currents[0].textContent = 'Perdu' ;
+            switchPlayer2();
+        }else{
+            currents[1].textContent = 'Perdu' ;
+            switchPlayer1();
+        }
+    } else {
+        currentPlayer += diceValue;
+        currents[actualPlayer].textContent = currentPlayer; 
+    }
+};
+// au clic sur rollDice lance function 
+rollDice.addEventListener('click', resultDice);
+
+////// au clic sur hold /////
+
+
+const save =() =>{
+    if(actualPlayer == 0){
+        scorePlayerOne += currentPlayer;
+        scores[0].textContent = scorePlayerOne;
+        currentPlayer = 0;
+        currents[0].textContent = currentPlayer;
+        switchPlayer2();
+    } else{
+        scorePlayerTwo += currentPlayer;
+        scores[1].textContent = scorePlayerTwo;
+        currentPlayer = 0;
+        currents[1].textContent = currentPlayer;
+        switchPlayer1();
+    }
+    winnerPlayer();
+}
+hold.addEventListener('click', save);
+
+// function winner

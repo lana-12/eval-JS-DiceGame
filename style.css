@@ -64,6 +64,7 @@ h1{
     align-items: center;
     color: #5EBEC4;
     font-weight: 900;
+    height:  2vh;
 }
 
 
@@ -73,11 +74,11 @@ main{
     background: linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%);
     border: solid #c2bab8 5px ;
     margin-top: 20px;
-    height: 600px;
     
 }
 
 .flexColum{
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,21 +86,19 @@ main{
     text-align: center;
 }
 .player1{
-    /* background: #5EBEC4; */
+/* background: #5EBEC4;  */
     color : #FAD9E6 ;
     
 }
 .optionGame{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    
-
-    
 }
+
 .player2{
-    /* background-color: #FAD9E6; */
+    /* background-color: #FAD9E6;  */
     color : #5EBEC4;
     
 }
@@ -107,6 +106,19 @@ img{
     width: 100px;
     height: 100px;
 }
+
+
+/********MEDIA QUERY POUR ECRAN 460PX  ***********
+******min-width 460px**************/
+@media screen and (min-width: 460px){
+    
+
+
+
+
+}
+
+
 /********MEDIA QUERY POUR ECRAN 720PX  ***********
 ******min-width 720px**************/
 @media screen and (min-width: 720px){
@@ -117,14 +129,17 @@ img{
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        align-items: stretch;
-        height: 800px;
+        align-items: stretch;   
     }
-    /* .player1{
+    .flexColum{
         
-    } */
+        
+        height: 400px;
+        
+    }
     .optionGame{
         display: flex;
         flex-direction: column;
     }
 }    
+/* mettre une hauteur =>flexColum pour different affivhage */
