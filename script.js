@@ -50,6 +50,7 @@ const input = document.getElementsByClassName('labelPlayer');
 // };
 
 
+
 //initialize option game
 const rollDice = document.getElementById('rollDice');
 const hold = document.getElementById('hold');
@@ -76,12 +77,12 @@ const newGames = document.getElementById('newGames');
 const rules = document.getElementById('rules');
 
 // initialize round players
-const currentPlayerOne = document.getElementById('currentPlayerOne');
-const currentPlayerTwo = document.getElementById('currentPlayerTwo');
+let currentPlayerOne = document.getElementById('currentPlayerOne');
+let currentPlayerTwo = document.getElementById('currentPlayerTwo');
 
 //initialize score players
-const scorePlayerOne = document.getElementById('scorePlayerOne');
-const scorePlayerTwo = document.getElementById('scorePlayerTwo');
+let scorePlayerOne = document.getElementById('scorePlayerOne');
+let scorePlayerTwo = document.getElementById('scorePlayerTwo');
 
 //initialize current and scoreTotal => pour les deux players
 const currents = document.querySelectorAll('.current');
@@ -116,8 +117,6 @@ const switchPlayer2 = ()=>{
     actualPlayer = 1;
     
 };
-
-
 //initialisation to Game
 // const initGame = () =>{
     currentPlayerOne = 0;
@@ -126,9 +125,9 @@ const switchPlayer2 = ()=>{
     currentPlayerTwo = 0;
     scorePlayerTwo = 0;
     
-    const actualPlayer = 0;
-    const currentPlayer = 0;
-    const diceValue = 0;
+    let actualPlayer = 0;
+    let currentPlayer = 0;
+    let diceValue = 0;
     
     currents.forEach((current) =>{
         current.textContent = 0;
@@ -137,9 +136,13 @@ const switchPlayer2 = ()=>{
         score.textContent = 0;
     });
     switchPlayer1(); 
+
+// }
+
+
+
     
     // a mettre img dé ici + create const ou class img face dé
-// }
 // nbre aleatoire entre 1 et 6
 const nbDiceRandom = ()=>{
     return Math.floor(Math.random()*6) + 1;  
