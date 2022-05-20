@@ -1,9 +1,17 @@
 Début du projet
 
+Mon jeu est en ligne mais encore fini. Il me manque à faire :
+  - Revoir le responsive et le css
+  - Finir le js => modal winner + function winner
+
+
 Evaluation JavaScript Jeu de dé
 Nom du repository sur github: 
 Par: Virginie Giacometti
 Adresse du mon site  : https://lana-12.github.io/eval-JS-DiceGame/
+
+
+
 
 Description du jeu:
 
@@ -17,7 +25,7 @@ Organisation du répertoire:
   index.html
   style.css
   img/
-  REDAME.md
+  README.md
   Robots
 
 

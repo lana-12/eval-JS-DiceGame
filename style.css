@@ -17,7 +17,7 @@ a:hover {
 /* faire class active avec les couleurs le blue celui qui jouent*/
 /* color blue = #5EBEC4  */
 /* color pink = #FDF5DF   */
-/* background-color: #8e9483;  */
+/* background-color: ##808080;  */
 
 /* Police  font-family: 'Lato', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
@@ -25,7 +25,7 @@ a:hover {
 body{
     height: 100%; 
     width: 100vw;
-    background-color: #3f413b; 
+    background-color: #808080; 
     font-family: 'Lato', sans-serif;
 }
 /* class général de style */
@@ -38,25 +38,30 @@ body{
 
 /*  STYLE ICONE*/
 .bi{
-
     cursor: pointer;
-
 }
-/*  Modal  */
+/* First Modal  */
 .btnModal{
     background-color: #5EBEC4;
     width: 80px;
     text-align: center;
     margin: auto;
     font-weight: bolder;
+    margin-bottom: 20px;
 }
-
-
-
+/* Second modal*/
+.modalUser{
+    display: flex;
+    flex-direction: column;
+}
+.labelPlayer{
+    margin: 10px;
+}
 /*  HEADER  */
 
 h1{
     color: #171816;
+    padding-bottom: 20px;
 }
 .barInfo{
     display: flex;
@@ -71,14 +76,14 @@ h1{
 /*  MAIN  */
 
 main{
-    background: linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%);
+    /* background: linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%); */
     border: solid #c2bab8 5px ;
     margin-top: 20px;
     
 }
 
 .flexColum{
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,10 +91,10 @@ main{
     text-align: center;
 }
 .player1{
-/* background: #5EBEC4;  */
-    color : #FAD9E6 ;
-    
+    background-color: #5EBEC4;  
+    color : #FAD9E6 ;  
 }
+
 .optionGame{
     display: flex;
     flex-direction: row;
@@ -98,13 +103,13 @@ main{
 }
 
 .player2{
-    /* background-color: #FAD9E6;  */
+    background-color: #FAD9E6;  
     color : #5EBEC4;
     
 }
 img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -122,9 +127,18 @@ img{
 /********MEDIA QUERY POUR ECRAN 720PX  ***********
 ******min-width 720px**************/
 @media screen and (min-width: 720px){
+    /* Second modal*/
+    .modalUser{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    }
+    .labelPlayer{
+    margin: 10px;
     
+    }
     main{
-        background: linear-gradient(to left, #FAD9E6 50%, #5EBEC4 50%);
+        /* background: linear-gradient(to left, #FAD9E6 50%, #5EBEC4 50%); */
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -132,10 +146,8 @@ img{
         align-items: stretch;   
     }
     .flexColum{
-        
-        
-        height: 400px;
-        
+        height: auto;
+        width: 50%;
     }
     .optionGame{
         display: flex;
@@ -143,3 +155,37 @@ img{
     }
 }    
 /* mettre une hauteur =>flexColum pour different affivhage */
+
+
+/* modalwinner
+.modalWinner {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+STYLISER DS LE DIV INTERNE ET METTRE MODAL HORIZONTAL
+.modalWinner div {
+  width: 350px;
+  height: 80px;
+  margin: 100px auto;
+  background-color: grey;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  border: 3px solid #cccccc;
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+} */

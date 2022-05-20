@@ -24,21 +24,54 @@ $(document).ready(()=>{
     });
 
 });
-/* color blue = #5EBEC4  */
-/* color pink = #FDF5DF   */
-/* background-color: #808080;  */
 
-// init modal + btn play
+// add element //
+
+// init modal + btnModal2 play
 const btnPlay = document.getElementById('play');
 const modalInitPlayer = document.getElementById('modal2')
 
-// initialize the players test
+// initialize the players 
 const namePlayerOne = document.getElementById('userNamePlayer1');//input
 const namePlayerTwo = document.getElementById('userNamePlayer2');//input
-const playerOne = document.getElementById('playerOne');//p
-const playerTwo = document.getElementById('playerTwo');//p
+let playerOne = document.getElementById('playerOne');//p
+let playerTwo = document.getElementById('playerTwo');//p
 const input = document.getElementsByClassName('labelPlayer');
 
+//initialize ActualPlayer + son Style
+const player = document.querySelectorAll('.player');
+const main = document.querySelector('main');
+const color1 = document.querySelector('.player1')
+const color2 = document.querySelector('.player2')
+
+//initialize rules and newgame
+let newGames = document.getElementById('newGames');
+let rules = document.getElementById('rules');
+
+//initialize option game
+let rollDice = document.getElementById('rollDice');
+let hold = document.getElementById('hold');
+
+// initialize round players
+let currentPlayerOne = document.getElementById('currentPlayerOne');
+let currentPlayerTwo = document.getElementById('currentPlayerTwo');
+
+//initialize score players
+let scorePlayerOne = document.getElementById('scorePlayerOne');
+let scorePlayerTwo = document.getElementById('scorePlayerTwo');
+
+//initialize current and scoreTotal => pour les deux players
+let currents = document.querySelectorAll('.current');
+let scores = document.querySelectorAll('.scoreTotal');
+
+///////////////////////////////////////////////////////////
+
+// add event focus to input 
+modalInitPlayer.addEventListener('shown.bs.modal', function () {
+    namePlayerOne.focus();
+    namePlayerOne.style.background='#5EBEC4';
+    namePlayerTwo.style.background='#FAD9E6'
+})
 
 /*   Initialize Game*/ // chaque new function à ajouter ds l'ordre
 // const playGame = ()=>{
@@ -49,57 +82,22 @@ const input = document.getElementsByClassName('labelPlayer');
 
 // };
 
-
-//initialize option game
-const rollDice = document.getElementById('rollDice');
-const hold = document.getElementById('hold');
-
 /* function players modal  */
-function addUserName () {
+// const addUserName = () => {
+    btnPlay.addEventListener('click', () =>{
         playerOne.textContent = namePlayerOne.value[0].toUpperCase() + namePlayerOne.value.substring(1).toLowerCase();
         playerTwo.textContent = namePlayerTwo.value[0].toUpperCase() + namePlayerTwo.value.substring(1).toLowerCase();
-        
-};
-btnPlay.addEventListener('click', addUserName);
-
-modalInitPlayer.addEventListener('shown.bs.modal', function () {
-    namePlayerOne.focus();
-    namePlayerOne.style.background='#5EBEC4';
-    namePlayerTwo.style.background='#FAD9E6'
 })
+// }
+
 
 ///////////////////////////////////////////////////////////////////
 
-//lier au dom
-const newGames = document.getElementById('newGames');
-// a voir pour au click les regles s'affiche ou id= modal
-const rules = document.getElementById('rules');
 
-// initialize round players
-const currentPlayerOne = document.getElementById('currentPlayerOne');
-const currentPlayerTwo = document.getElementById('currentPlayerTwo');
-
-//initialize score players
-const scorePlayerOne = document.getElementById('scorePlayerOne');
-const scorePlayerTwo = document.getElementById('scorePlayerTwo');
-
-//initialize current and scoreTotal => pour les deux players
-const currents = document.querySelectorAll('.current');
-const scores = document.querySelectorAll('.scoreTotal');
-
-//initialize ActualPlayer + son Style
-const player = document.querySelectorAll('.player');
-const main = document.querySelector('main');
-const color1 = document.querySelector('.player1')
-const color2 = document.querySelector('.player2')
 
 //Function for switch player
-/* color blue = #5EBEC4  */
-/* color pink = #FAD9E6   */
 
 const switchPlayer1 = ()=>{
-    // player[0].setAttribute('class', 'active');
-    // player[1].removeAttribute('class', 'active');
     player[0].style.background='#5EBEC4';
     player[1].style.background='#FAD9E6';
     color1.style.color ='#FAD9E6';
@@ -107,8 +105,6 @@ const switchPlayer1 = ()=>{
     actualPlayer = 0;
 };
 const switchPlayer2 = ()=>{
-    // player[1].setAttribute('class', 'active');
-    // player[0].removeAttribute('class', 'active');
     player[1].style.background='#5EBEC4';
     player[0].style.background= '#FAD9E6';
     color2.style.color = '#FAD9E6';
@@ -126,9 +122,9 @@ const switchPlayer2 = ()=>{
     currentPlayerTwo = 0;
     scorePlayerTwo = 0;
     
-    const actualPlayer = 0;
-    const currentPlayer = 0;
-    const diceValue = 0;
+    let actualPlayer = 0;
+    let currentPlayer = 0;
+    let diceValue = 0;
     
     currents.forEach((current) =>{
         current.textContent = 0;
@@ -147,7 +143,6 @@ const nbDiceRandom = ()=>{
 // Lancer les dés 
 // au clic sur rollDice lance function 
 const resultDice = ()=> {
-    
     diceValue = nbDiceRandom();
     console.log( ' le nombre du dé est '  + diceValue);
     if (diceValue === 1) {
@@ -167,6 +162,17 @@ const resultDice = ()=> {
     }
 };
 rollDice.addEventListener('click', resultDice);
+//verification nom joueur
+// const verificationUserName = ()=>{
+
+// }
+// roll.addEventListener("click", () => {
+//     if (playerOne.textContent !== "") {
+//         rollDice()
+//     } else {
+//         init()
+//     }
+// });
 
 ////// au clic sur hold /////
 const save =() =>{
@@ -185,45 +191,15 @@ const save =() =>{
             currents[1].textContent = currentPlayer;
             switchPlayer1();
         }
-        winnerPlayer();
+        // winnerPlayer();
     };
 hold.addEventListener('click', save)
 
-
-// je suis sur la modal
-const textWinner = document.getElementById('textWinner')
 const modalWinner = document.getElementById('modalWinner');
-
-
-
-// reste à faire la modal winner + la fonction
-// faire function initGame + nettoyer le code
-// faire soit en function soit const = () =>
-// verifier la saisie des username
-// revoir le css sur tout sur option game
-
-// function exemple() {
-//     modalWinner.style.visibility = (modalWinner.style.visibility == "visible") ? "hidden" : "visible";
-//     }
-
-// // function winner
+// function winner
 // const winnerPlayer = () =>{
-//     if(scorePlayerOne >= 10 || scorePlayerTwo >=10){
-//         console.log('gagné');
-//     exemple();
-
-
-//     //     modalWinner.style.
-//     //     if(actualPlayer == 0 || namePlayerOne !== ""){
-//     //         textWinner.textContent = `${playerOne} vous avez gagné`;
-//     //     }else{
-//     //         textWinner.textContent = `Player 1, vous avez gangé`;
-//     //     }if (actualPlayer == 1 || namePlayerTwo !== "") {
-//     //         textWinner.textContent = `${playerTwo} vous avez gagné`;
-//     //     }else{
-//     //         textWinner.textContent = `Player 2, vous avez gangé`;
-//     //     }
-//   }
+//     if (scorePlayerOne >= 100 || scorePlayerTwo >= 100){
+//         modalWinner.style.display ='block';
 // }
-
+// }
 // playGame()
