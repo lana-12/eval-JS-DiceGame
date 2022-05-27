@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <!--  FAVICON  -->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    
     <!-- Bootstrap CDN + Icone-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -14,144 +15,132 @@
     <!-- My CSS-->
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Evaluation Jeu de dé </title>
+
+
+    <title>Document</title>
 </head>
 <body>
-
-    <!--  Début Première Modal règles du jeu-->
-    <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="modalLabel" tabindex="-1">
-        <div class="modal-dialog  modal-dialog-centered">
-
-            <div class="modal-content">
-                
-                <div class="modal-header ">
-                    <h5 class="modal-title " id="modalLabel">Règles du jeu de dé</h5>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                </div>
-
-                <div class="modal-body">
-                    <h6 class="center line-height mb-3">Pour commencer à jouer, </br>lisez les règles du jeu :</h6>
-                    
-                    <p class="line-height"> 
-                    Deux joueurs s'affontent aux lancers d'un dé à 6 faces.
-                    Chaque joueur possède un score actuel et global = 0.
-                    À chaque tour, le joueur actif (bleu) a son score = 0 et peut lancer un dé autant de fois qu'il le souhaite.</p>
-                    <p class="center"><b>Le résultat d’un lancer est ajouté au score actuel</b>.</p>
+  
+  <!-- Modal RULES GAME-->
+  <div class="modal fade" id="modalRules" tabindex="-1" aria-labelledby="modalLabelRules" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabelRules">Règles du jeu de dé</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6 class="center line-height mb-3">Pour commencer à jouer, </br>lisez les règles du jeu :</h6>
+              <p class="line-height">
+                Saissisez les noms des joueurs. 
+                Chaque joueur possède un score actuel et global = 0.
+                À chaque tour, le joueur actif (bleu) a son score = 0 et peut lancer un dé autant de fois qu'il le souhaite.</p>
+              <p class="center"><b>Le résultat d’un lancer est ajouté au score actuel</b>.</p>
 <hr>
-                    <ul>Lors de son tour, le joueur actif peut décider de :
-                        <li class="mt-2">Cliquer sur HOLD, pour sauvegarder son score, il s 'additionnera automatiquement.</br> <b> Ce sera alors le tour de l’autre joueur de jouer.</b></li>
-                        <li class="mt-2"> Lancer ou relancer le dé. S’il obtient un 1, son score est perdu et c’est la fin de son tour.</li>
-                    </ul>
-                    
-                </div>
-
-                <div class="modal-footer">
-                    <p class="center">
-                    <b>Pour gagner la partie, il faut atteindre 100 points</b>.</p>
-                </div>
-                
-                <!-- <a class="btn btnModal  " id="start" data-bs-toggle="modal" href="#modal2" role="button">START</a> -->
-                <button type="button" id="start" class="btn btnModal" data-bs-dismiss="modal">START</button>
-            </div>
+              <ul>Lors de son tour, le joueur actif peut décider de :
+                  <li class="mt-2">Cliquer sur HOLD, pour sauvegarder son score, il s 'additionnera automatiquement.</br> <b> Ce sera alors le tour de l’autre joueur de jouer.</b></li>
+                  <li class="mt-2"> Lancer ou relancer le dé. S’il obtient un 1, son score est perdu et c’est la fin de son tour.</li>
+              </ul>
         </div>
-    </div>
-<!--  fin Première Modal règles du jeu-->
-
-<!--  Début deuxième Modal Saisir les pseudos-->
-    <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modalLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5 class="modal-title " id="modalLabel2">Entrer les noms des joueurs</h5>
-                    
-                </div>
-
-                <div class="modal-body modalUser  ">
-                    <div class="labelPlayer">
-                        <label for="userNamePlayer1">Player 1</label>
-                        <input type="text" name="userNamePlayer1" class="labelPlayer"id="userNamePlayer1" required />
-                    </div>
-                    <div class="labelPlayer">
-                        <label  for="userNamePlayer2">Player 2</label>
-                        <input type="text" class="labelPlayer  " name="userNamePlayer2" id="userNamePlayer2" required />
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" id="play" class="btn btnModal " data-bs-dismiss="modal">PLAY</button>
-                </div>
-        
-            </div>
+        <div class="modal-footer">
+          <p class="center">
+            Pour gagner la partie, il faut atteindre 100 points.</p>
+          <button type="button" id="start" class="btn btnModal start" data-bs-dismiss="modal">START</button>
         </div>
+      </div>
     </div>
-<!--  Fin deuxième Modal Saisir les pseudos-->
-<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Open first modal</a> -->
+  </div>
+<!--   END MODAL RULES-->
 
+<!--   DEBUT MODAL saisir USERNAMES PLAYERS-->
 
-
-
-
+<div class="modal fade" id="modalNamePlayer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabelPlayers" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabelPlayers">Entrer les noms des joueurs</h5>
+      </div>
+      <div class="modal-body modalUser  ">
+        <div class="labelPlayer">
+            <label for="userNamePlayer1">Player 1</label>
+            <input type="text" name="userNamePlayer1" class="labelPlayer  "id="userNamePlayer1" required />
+            <span id='missNameOne'></span><br>
+        </div>
+        <div class="labelPlayer">
+            <label  for="userNamePlayer2">Player 2</label>
+            <input type="text" class="labelPlayer   " name="userNamePlayer2" id="userNamePlayer2" required />
+            <span id='missNametwo'></span><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="play" class="btn btnModal play" data-bs-dismiss="modal">PLAY</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   END MODAL saisir USERNAMES PLAYERS-->
 
 <header>
-    <h1 id="titreDiceGame " class="center col-12 mt-2 mb-3">Welcome to Dice Game</h1>
-    <div class="barInfo">
+  <!--  Title  -->
+  <h1 id="titreDiceGame " class="center col-12 mt-2 mb-3">Welcome to Dice Game</h1>
+  
 
-        <h2 id="newGame"><i class="bi bi-plus-circle biHeader p-2"></i>New Game</h2>
+  <!-- Button trigger modal -->
+  <div class="barInfo">
 
-        <!-- Revoir le chemin de la modal pour les regles-->
-        
-            <h2 id="rules">
-            <i class="bi bi-book biHeader  p-2 "></i>Rules</h2>
-        
-        
-    </div>
+      <h2 id="newGame" type="button" class="btn btnInfo" data-bs-toggle="modal" data-bs-target="#modalNamePlayer"><i class="bi bi-plus-circle biHeader p-2"></i>
+        New Game
+      </h2>
+
+
+      <h2 id="rules" type="button" class="btn btnInfo" data-bs-toggle="modal" data-bs-target="#modalRules"><i class="bi bi-book biHeader  p-2 "></i>
+        Rules
+      </h2>
+      
+  </div>
 </header>
 
-    <main class=" ">
+<main class="container ">
 
-        <div class="flexColum player player1 ">
-            <h3 id="player1" >Player 1
-        <!-- <i class="player bi bi-record-fill active "></i> -->
-    </h3>
-            <p  id="playerOne"></p>
-            <p  class="current" id="currentPlayerOne" ></p>
-            <h4 >Score Global</h4>
-            <p class="scoreTotal"  id="scorePlayerOne"></p>
-        </div>
-        <div class="optionGame  ">
-            <p id="rollDice"><i class="bi bi-arrow-repeat p-1"></i>Roll Dice</p>
-            <!-- <p id="imgDice">Image de dé</p> -->
-            <img src="img/face-6.png" alt="image de dé" title="image de dé">
-            <p id="hold" ><i class="bi bi-box-arrow-in-down p-1"></i>Hold</p>
-        </div>
-        <div class="flexColum player player2  ">
-            <h3 id="player2" >Player 2
-            <!-- <i class="player bi bi-record-fill "></i> -->
-        </h3>
-            <p id="playerTwo"></p>
-            <p class="current" id="currentPlayerTwo"></p>
-            <h4 >Score Global</h4>
-            <p class="scoreTotal" id="scorePlayerTwo"></p>
-        </div>
-        
-        <!-- <div class="modalWinner"id="modalWinner">
-            <div class="winner" >
-                <h5>Félicitation !!!</h5>
-                <i class="close bi bi-x-square"></i>
-                <p id="textWinner"></p>
-                <button id="modal-newgame">New game</button>
-            </div>
-        </div> -->
+  <div class="flexColum player player1 ">
+      <h3 id="player1" >Player 1
+  <!-- <i class="player bi bi-record-fill active "></i> -->
+</h3>
+      <p  id="playerOne"></p>
+      <p  class="current" id="currentPlayerOne" ></p>
+      <h4 >Score Global</h4>
+      <p class="scoreTotal"  id="scorePlayerOne"></p>
+  </div>
+  <div class="optionGame  ">
+      <p id="rollDice"><i class="bi bi-arrow-repeat p-1"></i>Roll Dice</p>
+      <!-- <p id="imgDice">Image de dé</p> -->
+      <img src="img/face-6.png" alt="image de dé" title="image de dé">
+      <p id="hold" ><i class="bi bi-box-arrow-in-down p-1"></i>Hold</p>
+  </div>
+  <div class="flexColum player player2  ">
+      <h3 id="player2" >Player 2
+      <!-- <i class="player bi bi-record-fill "></i> -->
+  </h3>
+      <p id="playerTwo"></p>
+      <p class="current" id="currentPlayerTwo"></p>
+      <h4 >Score Global</h4>
+      <p class="scoreTotal" id="scorePlayerTwo"></p>
+  </div>
 
 
-        
-        
-    </main>
-<!--Avoir si utile-->
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!-- jQuery -->    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Javascript -->    
+    <!-- jQuery -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Javascript -->  
+<script src="initVariable.js"></script>
+    <!-- <script src="script.js"></script> -->
     <script src="script.js"></script>
 
 </body>
