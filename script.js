@@ -1,3 +1,14 @@
+// TOUT FONCTIONNE MAIS RESTE A FAIRE
+// reste à faire :  
+//      the function
+//      LA PARTIE WINNER >= 100 WINNER
+//      LANCER LA MODAL WINNER +> A CREATE
+//      faire soit en function soit const = () =>  A REFLECHIR ENCORE et encore
+//      image dé
+//      revoir le css sur tout sur option game and sur tout
+
+
+// START JQuery
 $(document).ready(()=>{
     console.log('Jquery bien installé');
     
@@ -7,7 +18,7 @@ $(document).ready(()=>{
     $('h1').hide();
     $('h1').show(5000);
 
-}); // fin Jquery
+}); // end Jquery
 
 
     /* function focus + background input */
@@ -22,7 +33,8 @@ function addUserName () {
     playerOne.textContent = namePlayerOne.value[0].toUpperCase() + namePlayerOne.value.substring(1).toLowerCase();
     playerTwo.textContent = namePlayerTwo.value[0].toUpperCase() + namePlayerTwo.value.substring(1).toLowerCase();
 };
-    
+
+// verifie si nom rentrer else the name.value => player1 and player2
 btnPlay.addEventListener('click', ()=>{
     if(namePlayerOne.value == "" && namePlayerTwo.value == ""){
         namePlayerOne.value = "Player 1"
@@ -35,7 +47,7 @@ btnPlay.addEventListener('click', ()=>{
     }
 })
 
-//Function for switch player
+//Function for player switch 
 const switchPlayer1 = ()=>{
     player[0].style.background='#5EBEC4';
     player[1].style.background='#FAD9E6';
@@ -51,7 +63,7 @@ const switchPlayer2 = ()=>{
     actualPlayer = 1;
 };
 
-//initialisation to Game
+//initialization to Game 
 
 currentPlayerOne = 0;
 scorePlayerOne = 0;
@@ -76,12 +88,12 @@ switchPlayer1();
 // a mettre img dé ici + create const ou class img face dé
 
 
-// nbre aleatoire entre 1 et 6
+// random number between 1 and 6
 const nbDiceRandom = ()=>{
     return Math.floor(Math.random()*6) + 1;  
 } 
-// Lancer les dés 
-// au clic sur rollDice lance function 
+// Roll the dice
+// on click on rollDice launch function
 const resultDice = ()=> {
     diceValue = nbDiceRandom();
     console.log( ' le nombre du dé est '  + diceValue);
@@ -103,9 +115,8 @@ const resultDice = ()=> {
 };
 rollDice.addEventListener('click', resultDice);
 
-////// au clic sur hold /////
+////// on click on hold /////
 const save =() =>{
-    
 
         if(actualPlayer == 0){
             scorePlayerOne += currentPlayer;
@@ -126,37 +137,4 @@ hold.addEventListener('click', save)
 
 
 
-
-//A VOIR SI AU CLICK LANCER PLAYGAME
-// reste à faire la modal winner + la fonction
-// faire function initGame + nettoyer le code
-// faire soit en function soit const = () =>
-// verifier la saisie des username
-// revoir le css sur tout sur option game
-
-// function exemple() {
-//     modalWinner.style.visibility = (modalWinner.style.visibility == "visible") ? "hidden" : "visible";
-//     }
-
-// // function winner
-// const winnerPlayer = () =>{
-//     if(scorePlayerOne >= 10 || scorePlayerTwo >=10){
-//         console.log('gagné');
-//     exemple();
-
-
-//     //     modalWinner.style.
-//     //     if(actualPlayer == 0 || namePlayerOne !== ""){
-//     //         textWinner.textContent = `${playerOne} vous avez gagné`;
-//     //     }else{
-//     //         textWinner.textContent = `Player 1, vous avez gangé`;
-//     //     }if (actualPlayer == 1 || namePlayerTwo !== "") {
-//     //         textWinner.textContent = `${playerTwo} vous avez gagné`;
-//     //     }else{
-//     //         textWinner.textContent = `Player 2, vous avez gangé`;
-//     //     }
-//   }
-// }
-
-// playGame()
 
