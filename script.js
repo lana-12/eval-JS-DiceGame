@@ -1,12 +1,12 @@
-// TOUT FONCTIONNE MAIS RESTE A FAIRE
+// TOUT FONCTIONNE MAIS 
 // reste à faire :  
 //      the function
 //      LA PARTIE WINNER >= 100 WINNER
-//      LANCER LA MODAL WINNER +> A CREATE
+//      LANCER LA MODAL WINNER  et revoir les id + mettre en value=>input le nom des joueurs + score
 //      faire soit en function soit const = () =>  A REFLECHIR ENCORE et encore
 //      image dé
 //      revoir le css sur tout sur option game and sur tout
-
+// pour vérifier la saisie if ( user.value !=='' && user.value !== null)=> affiche ca....sinon ca.....
 
 // START JQuery
 $(document).ready(()=>{
@@ -65,23 +65,24 @@ const switchPlayer2 = ()=>{
 
 //initialization to Game 
 
-currentPlayerOne = 0;
-scorePlayerOne = 0;
+    currentPlayerOne = 0;
+    scorePlayerOne = 0;
     
-currentPlayerTwo = 0;
-scorePlayerTwo = 0;
+    currentPlayerTwo = 0;
+    scorePlayerTwo = 0;
     
-let actualPlayer = 0;
-let currentPlayer = 0;
-let diceValue = 0;
+    let actualPlayer = 0;
+    let currentPlayer = 0;
+    let diceValue = 0;
     
-currents.forEach((current) =>{
+    currents.forEach((current) =>{
         current.textContent = 0;
-});
-scores.forEach((score) =>{
-    score.textContent = 0;
-});
-switchPlayer1(); 
+    });
+    scores.forEach((score) =>{
+        score.textContent = 0;
+    });
+    switchPlayer1(); 
+
 
 
 
@@ -95,6 +96,7 @@ const nbDiceRandom = ()=>{
 // Roll the dice
 // on click on rollDice launch function
 const resultDice = ()=> {
+    
     diceValue = nbDiceRandom();
     console.log( ' le nombre du dé est '  + diceValue);
     if (diceValue === 1) {
@@ -112,6 +114,7 @@ const resultDice = ()=> {
         currentPlayer += diceValue;
         currents[actualPlayer].textContent = currentPlayer; 
     }
+    
 };
 rollDice.addEventListener('click', resultDice);
 
@@ -136,5 +139,42 @@ const save =() =>{
 hold.addEventListener('click', save)
 
 
+///////// MODAL WINNER //////
 
+//MODAL WINNER
+let editModalWinner = new bootstrap.Modal(document.getElementById("modalWinner"), {});
+//addEditModal.show();
+
+// tout marche revoir les scoresPlayer ou les mettre et remettre tout à zéro =>ok
+
+function winnerPlayer(){
+    if (scorePlayerOne >= 10 || scorePlayerTwo >= 10){
+        //alert('gagné');
+        // display modal but I can't do it
+        editModalWinner.show();
+
+
+
+
+            if(scorePlayerOne >= 10){
+                if(playerOne == "Player 1"){
+                    alert(`Player 1, vous avez gagné !!` );
+                }else {
+                    alert(`${playerOne.innerText},  vous avez gagné !!` );
+                } 
+            }
+            scorePlayerOne = 0;
+            scores[0].textContent = scorePlayerOne;
+            if(scorePlayerTwo >= 10){
+                if(playerTwo == "Player 2"){
+                    alert(`Player 2, vous avez gagné !!` );
+                }else {
+                    alert(`${playerTwo.innerText},  vous avez gagné !!` );
+                } 
+            }
+            scorePlayerTwo = 0;
+            scores[1].textContent = scorePlayerTwo;       
+    }
+
+}
 

@@ -5,10 +5,9 @@ const modalInitPlayer = document.getElementById('modalNamePlayer')
 const modalRules = document.getElementById('modalRules')
 const btnPlay = document.getElementById('play');
 const btnStart = document.getElementById('start');
-const modalWinner = document.getElementById('modalWinner')
 
-//H1 pour l'animation
-const titleAnimation = document.getElementById('titreDiceGame');
+
+
 
 // init newGames and Rules
 const newGames = document.getElementById('newGames');

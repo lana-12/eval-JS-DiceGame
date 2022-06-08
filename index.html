@@ -17,7 +17,7 @@
     <title>Evaluation Jeu de dé </title>
 
 
-    <title>Document</title>
+ 
 </head>
 <body>
   
@@ -79,6 +79,43 @@
   </div>
 </div>
 <!--   END MODAL saisir USERNAMES PLAYERS-->
+
+
+
+<!--   DEBUT MODAL Winner-->
+
+<div class="modal fade" id="modalWinner" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabelWinner" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabelWinner">FÉLICITATION</h5>
+      </div>
+      <div class="modal-body modalWinner  ">
+        <div>
+            <p id="winnerPlayer"></p>
+        </div>
+        <div class="ScoreFinal">
+<!--    METTRE AVEC JS LE NOM DES JOUEURS + LE SCORE-->
+
+          <div class="scorePlayer1">
+            <label for="userNamePlayer1">Player 1</label>
+            <input type="text" name="userNamePlayer1" class="labelPlayer  " id="#userNamePlayer1"></input>
+          </div>
+
+          <div class="labelPlayer">
+            <label  for="userNamePlayer2">Player 2</label>
+            <input type="text" class="labelPlayer " name="userNamePlayer2" id="#userNamePlayer2"><input/>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="quitter" class="btn btnModal play" data-bs-dismiss="modal">Quitter</button>
+        <button type="button" id="newPartie" class="btn btnModal play" data-bs-dismiss="modal">Rejouer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   END MODAL Winner-->
 
 <header>
   <!--  Title  -->
