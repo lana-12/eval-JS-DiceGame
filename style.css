@@ -12,22 +12,17 @@ a:hover {
     color: inherit
 }
 
-
-/*couleur*/
-/* faire class active avec les couleurs le blue celui qui jouent*/
-/* color blue = #5EBEC4  */
-/* color pink = #FDF5DF   */
-/* background-color: ##808080;  */
-
 /* Police  font-family: 'Lato', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 body{
-    height: 100%; 
-    width: 100vw;
+    height: 100vh; 
+    width: 100%;
     background-color: #808080; 
     font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
 }
+
 /* class général de style */
 .center{
     text-align: center;
@@ -39,6 +34,12 @@ body{
 /*  STYLE ICONE*/
 .bi{
     cursor: pointer;
+    transition: 0.3s;
+    transition-property: color, font-weight;
+}
+.bi:hover{
+    color: #fff;
+    font-weight: 900;
 }
 /* First Modal  */
 .btnModal{
@@ -72,12 +73,9 @@ h1{
     height:  2vh;
 }
 
-
 /*  MAIN  */
-
 main{
-    /* background: linear-gradient(to bottom, #5EBEC4 50%, #FAD9E6 50%); */
-    border: solid #c2bab8 5px ;
+    /* border: solid #c2bab8 5px ; */
     margin-top: 20px;
     
 }
@@ -89,6 +87,7 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 20px;
 }
 .player1{
     background-color: #5EBEC4;  
@@ -96,10 +95,13 @@ main{
 }
 
 .optionGame{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding: 20px;
+    width: auto;
 }
 
 .player2{
@@ -107,22 +109,23 @@ main{
     color : #5EBEC4;
     
 }
+.RollDice{
+    flex-wrap: wrap;
+}
 img{
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
-
-
-/********MEDIA QUERY POUR ECRAN 460PX  ***********
-******min-width 460px**************/
-@media screen and (min-width: 460px){
-    
-
-
-
-
+.loose{
+    padding: 20px;
 }
-
+.dice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /********MEDIA QUERY POUR ECRAN 720PX  ***********
 ******min-width 720px**************/
@@ -137,13 +140,18 @@ img{
     margin: 10px;
     
     }
+    .optionGame{
+        margin: 50px;
+    }
+
     main{
-        /* background: linear-gradient(to left, #FAD9E6 50%, #5EBEC4 50%); */
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        align-items: stretch;   
+        margin: 0;
+        padding: 0;
+        /* align-items: stretch;    */
     }
     .flexColum{
         height: auto;
@@ -153,39 +161,19 @@ img{
         display: flex;
         flex-direction: column;
     }
+    .dice{
+        margin: 50px 0;
+    }
+    img {
+        width: 80px;
+        height: 80px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .player{
+        height: 450px;
+        margin-top: 30px;
+    }
+    
 }    
-/* mettre une hauteur =>flexColum pour different affivhage */
 
-
-/* modalwinner
-.modalWinner {
-  visibility: hidden;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  z-index: 1000;
-}
-STYLISER DS LE DIV INTERNE ET METTRE MODAL HORIZONTAL
-.modalWinner div {
-  width: 350px;
-  height: 80px;
-  margin: 100px auto;
-  background-color: grey;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
-  border: 3px solid #cccccc;
-  position: absolute;
-  left: 50%;
-  top: 100px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-} */

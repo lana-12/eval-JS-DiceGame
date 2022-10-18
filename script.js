@@ -1,22 +1,14 @@
-// TOUT FONCTIONNE MAIS 
-// reste à faire :  
-//      the function
-//      LA PARTIE WINNER >= 100 WINNER
-//      LANCER LA MODAL WINNER  et revoir les id + mettre en value=>input le nom des joueurs + score
-//      faire soit en function soit const = () =>  A REFLECHIR ENCORE et encore
-//      image dé
-//      revoir le css sur tout sur option game and sur tout
-// pour vérifier la saisie if ( user.value !=='' && user.value !== null)=> affiche ca....sinon ca.....
-
 // START JQuery
 $(document).ready(()=>{
     console.log('Jquery bien installé');
     
     $('#modalRules').css('background','#808080');
     $('#modalNamePlayer').css('background','#808080');
-
+    
+    alert('Cliquez sur NewGame pour commencer la partie, pensez à lire les règles du jeu (\'Rules\') avant de commencer !!');
+    alert('But du jeu: Le premier qui arrive a 100 points a gagné ;)')
     $('h1').hide();
-    $('h1').show(5000);
+    $('h1').show(3000);
 
 }); // end Jquery
 
@@ -34,18 +26,19 @@ function addUserName () {
     playerTwo.textContent = namePlayerTwo.value[0].toUpperCase() + namePlayerTwo.value.substring(1).toLowerCase();
 };
 
-// verifie si nom rentrer else the name.value => player1 and player2
-btnPlay.addEventListener('click', ()=>{
+// verifie si nom rentré else the name.value => player1 and player2
+function verifName(){
     if(namePlayerOne.value == "" && namePlayerTwo.value == ""){
         namePlayerOne.value = "Player 1"
         playerOne = namePlayerOne.value
-            
         namePlayerTwo.value = "Player 2"
         playerTwo = namePlayerTwo.value
+        
     }else{
         addUserName()
     }
-})
+};
+btnPlay.addEventListener('click', verifName);
 
 //Function for player switch 
 const switchPlayer1 = ()=>{
@@ -84,11 +77,6 @@ const switchPlayer2 = ()=>{
     switchPlayer1(); 
 
 
-
-
-// a mettre img dé ici + create const ou class img face dé
-
-
 // random number between 1 and 6
 const nbDiceRandom = ()=>{
     return Math.floor(Math.random()*6) + 1;  
@@ -98,11 +86,28 @@ const nbDiceRandom = ()=>{
 const resultDice = ()=> {
     
     diceValue = nbDiceRandom();
-    console.log( ' le nombre du dé est '  + diceValue);
+    switch (diceValue){
+        case 1:
+            dice.innerHTML ='<img class="face" src="img/dice1.png" alt="Perdu ! Joueur Suivant" title="Perdu ! Joueur Suivant"/><p class="loose">Perdu !</p><span>Joueur suivant</span>';
+            break;
+        case 2:
+            dice.innerHTML = '<img class="face" src="img/dice2.png" alt="">';
+            break;
+        case 3:
+            dice.innerHTML = '<img class="face" src="img/dice3.png" alt="">';
+            break;
+        case 4:
+            dice.innerHTML = '<img class="face" src="img/dice4.png" alt="">';
+            break;
+        case 5:
+            dice.innerHTML = '<img class="face" src="img/dice5.png" alt="">';
+            break;
+        case 6:
+            dice.innerHTML = '<img class="face" src="img/dice6.png" alt="">';
+            break;
+    }
     if (diceValue === 1) {
-        console.log('vous avez perdu');
         currentPlayer = 0;
-        console.log('vous etes à '+ currentPlayer);
         if(actualPlayer == 0){
             currents[0].textContent = currentPlayer;
             switchPlayer2();
@@ -142,39 +147,45 @@ hold.addEventListener('click', save)
 ///////// MODAL WINNER //////
 
 //MODAL WINNER
-let editModalWinner = new bootstrap.Modal(document.getElementById("modalWinner"), {});
-//addEditModal.show();
-
-// tout marche revoir les scoresPlayer ou les mettre et remettre tout à zéro =>ok
 
 function winnerPlayer(){
-    if (scorePlayerOne >= 10 || scorePlayerTwo >= 10){
-        //alert('gagné');
-        // display modal but I can't do it
+    if (scorePlayerOne >= 100 || scorePlayerTwo >= 100){
         editModalWinner.show();
-
-
-
-
-            if(scorePlayerOne >= 10){
+            if(scorePlayerOne >= 100){
                 if(playerOne == "Player 1"){
-                    alert(`Player 1, vous avez gagné !!` );
+                    paragrapheWinner.innerText = `Player 1, vous avez gagné !!`;
                 }else {
-                    alert(`${playerOne.innerText},  vous avez gagné !!` );
+                    paragrapheWinner.innerText = `${playerOne.innerText},  vous avez gagné !!`
+                    
                 } 
             }
             scorePlayerOne = 0;
             scores[0].textContent = scorePlayerOne;
-            if(scorePlayerTwo >= 10){
+            playerOne.textContent = "";
+            namePlayerOne.value == "";
+            if(scorePlayerTwo >= 100){
                 if(playerTwo == "Player 2"){
-                    alert(`Player 2, vous avez gagné !!` );
+                    paragrapheWinner.innerText =`Player 2, vous avez gagné !!`;
                 }else {
-                    alert(`${playerTwo.innerText},  vous avez gagné !!` );
+                    paragrapheWinner.innerText =`${playerTwo.innerText},  vous avez gagné !!`;
                 } 
             }
             scorePlayerTwo = 0;
-            scores[1].textContent = scorePlayerTwo;       
-    }
+            scores[1].textContent = scorePlayerTwo;  
+            playerTwo.textContent = ""; 
+            namePlayerTwo.value == "";    
+        }
+    };
+// btn close modal winner remise a zéro
+btnCloseGame.addEventListener('click', ()=>{
+    namePlayerOne.textContent = "";
+    namePlayerTwo.textContent = "";
+    namePlayerOne.value = "";
+    namePlayerTwo.value = "";
+    playerOne.textContent = "";
+    playerTwo.textContent = "";
 
-}
+})
+    
+
 

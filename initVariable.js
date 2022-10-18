@@ -1,13 +1,10 @@
 /************* Initialisation variable ******************/
 
 // init modal + btn play
-const modalInitPlayer = document.getElementById('modalNamePlayer')
+const modalInitPlayer = document.getElementById('modalNamePlayer');
 const modalRules = document.getElementById('modalRules')
 const btnPlay = document.getElementById('play');
 const btnStart = document.getElementById('start');
-
-
-
 
 // init newGames and Rules
 const newGames = document.getElementById('newGames');
@@ -19,6 +16,9 @@ let namePlayerTwo = document.getElementById('userNamePlayer2');//input
 let playerOne = document.getElementById('playerOne');//p
 let playerTwo = document.getElementById('playerTwo');//p
 const input = document.getElementsByClassName('labelPlayer');
+
+// initialize dé
+let dice = document.getElementById('dice');
 
 //initialize option game
 const rollDice = document.getElementById('rollDice');
@@ -36,9 +36,17 @@ let scorePlayerTwo = document.getElementById('scorePlayerTwo');
 const currents = document.querySelectorAll('.current');
 const scores = document.querySelectorAll('.scoreTotal');
 
-
 //initialize ActualPlayer + son Style
 const player = document.querySelectorAll('.player');
-
 const color1 = document.querySelector('.player1')
 const color2 = document.querySelector('.player2')
+
+
+//initialize Modal winner
+let paragrapheWinner = document.getElementById("winnerPlayer");
+let editModalWinner = new bootstrap.Modal(
+    document.getElementById("modalWinner"),{}
+);
+
+let btnCloseGame = document.getElementById("quitter");
+
