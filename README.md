@@ -1,4 +1,4 @@
-# DiceGame -  [lien](https://lana-12.github.io/eval-JS-DiceGame/)
+# DiceGame -  [Lien](https://lana-12.github.io/eval-JS-DiceGame/)
 
 Dans le cadre de ma formation de développeur Web - Web Mobile, j'ai réalisé un petit en JavaScript pour valider mes compétences.
 
