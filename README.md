@@ -1,54 +1,22 @@
-Evaluation JavaScript Jeu de dé: 
-Nom du repository sur github: https://github.com/lana-12/eval-JS-DiceGame
-Par: Virginie Giacometti
-Adresse du mon site  : https://lana-12.github.io/eval-JS-DiceGame/
+# DiceGame: [lien](https://lana-12.github.io/eval-JS-DiceGame/) 
 
-Description du jeu:
-  Dans le cadre de ma formation de développeur Web - Web Mobile, j'ai réalisé un petit en JavaScript.
+## Rules:
+  The game features 2 players on a single screen. 
+    Each player has a temporary score (CURRENT) and a global score (global).
+    At each turn, the player's CURRENT is initialized to 0, and he can roll a die as many times as he likes. The result of a roll is added to the global score. 
+  At any time during his turn, the player may decide to:
+      - Click on the "Hold" option, which sends the CURRENT's points to the GLOBAL. It will then be the
+          the other player's turn.
+      - Roll the die. If he rolls a 1, his CURRENT score is lost and his turn is over.
 
-Règles :
-  Le jeu comprend 2 joueurs sur un seul et même écran. 
-    Chaque joueur possède un score temporaire (CURRENT) et un score global (global).
-    À chaque tour, le joueur a son CURRENT initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le résultat d’un lancer est ajouté au global. 
-  Lors de son tour, le joueur peut décider à tout moment de:
-      - Cliquer sur l’option “Hold”, qui permet d’envoyer les points du CURRENT vers le GLOBAL. Ce sera alors le
-          tour de l’autre joueur.
-      - Lancer le dé. S’il obtient un 1, son score CURRENT est perdu et c’est la fin de son tour.
-
-  Le premier joueur qui atteint les 100 points sur global gagne le jeu
-
-Technologies utilisées:
-La réalisation de l'interface est pensé Mobile frist. J'ai utilisé le framework Bootstrap avec quelques médias queries. J'ai utilisé bootstrap en cdn :
-  <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  The first player to reach 100 points on global wins the game.
 
 
-  <!-- Icone -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+### Installation
 
+``` bash
+git clone https://github.com/lana-12/eval-JS-DiceGame.git
 
-Déploiement:
-J'ai déployé mon jeu sur github pages.
-Sur mon github, allez dans setting au niveau du bloc Github Pages, sélectionnez dans “Source”, l'option “master branch” puis cliquez sur “Save”.
-
-
-Organisation du répertoire:
-  index.html
-  style.css
-  img/
-  README.md
-
-Dépot sur Github
-Création du repository sur Github: https://github.com/lana-12/eval-JS-DiceGame
-  
-
-Ressources utilisées pour la réalisation de l'évaluation
-  -les cours sur Studi: html, css et bootstrap
-  -la documentation bootstrap
-  -les tutos sur le web
-  -Visual studio code
-  -Github
-
-
+```
 
 
